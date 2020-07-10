@@ -20,10 +20,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String>{
     
-    @Modifying
-    @Query(value = "INSERT INTO `request`(`id`, `requester`, `type`, `current_status`, `total`, `start`, "
-            + "`end`, `reason`)"
-            + "VALUES (?,?,?,?,?,?,?,?)", 
-            nativeQuery = true)
-    public List<Request> insertRequest();
+//    @Modifying
+//    @Query(value = "INSERT INTO `request`(`id`, `requester`, `type`, `current_status`, `total`, `start`, "
+//            + "`end`, `reason`)"
+//            + "VALUES (?,?,?,?,?,?,?,?)", 
+//            nativeQuery = true)
+//    public List<Request> insertRequest();
 }

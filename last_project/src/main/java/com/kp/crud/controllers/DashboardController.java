@@ -5,8 +5,11 @@
  */
 package com.kp.crud.controllers;
 
+import com.kp.crud.entities.Employee;
+import com.kp.crud.entities.Report;
 import com.kp.crud.repositories.EmployeeRepository;
 import com.kp.crud.services.EmployeeService;
+import com.kp.crud.services.ReportService;
 import javafx.scene.layout.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,29 +22,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 /**
  *
  * @author Yosef Febrianes
  */
 @Controller
 public class DashboardController {
-    
-    
-    @Autowired
-    EmployeeService regionService;
 
     @Autowired
-    EmployeeRepository repository;
+    EmployeeService employeeService;
 
+    @Autowired
+    ReportService reportService;
+
+//    @RequestMapping("dashboard")
+//    public String index(Model model) {
+////        for (Region region : regionService.getAll()) {
+////            System.out.println(region.getId()+" - "+region.getName());
+////        }
+//        model.addAttribute("region", new Region());
+//        model.addAttribute("regions", regionService.getAll());
+//        return "dashboard";
+//    }
     @RequestMapping("dashboard")
-    public String index(Model model) {
-//        for (Region region : regionService.getAll()) {
-//            System.out.println(region.getId()+" - "+region.getName());
-//        }
-        model.addAttribute("region", new Region());
-        model.addAttribute("regions", regionService.getAll());
+    public String employeView(Model model) {
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("employees", employeeService.employeeViewLeave());
+        model.addAttribute("report", new Report());
+        model.addAttribute("reports", reportService.reportView());
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("employees2", employeeService.employeeViewNotLeave());
+//        for (Employee employee : employeeService.employeeView()) {
+//                System.out.println(employee.getId());
+//            }
         return "dashboard";
     }
 
+//    @GetMapping("dashboard")
+//    public String reportView(Model model){
+//        model.addAttribute("report", new Report());
+//        model.addAttribute("reports", reportService.reportView());
+//        return "dashboard";
+//
+//    }
 }

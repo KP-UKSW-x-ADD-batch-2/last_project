@@ -6,7 +6,6 @@
 package com.kp.crud.controllers;
 
 import com.kp.crud.entities.Report;
-import com.kp.crud.entities.Request;
 import com.kp.crud.services.ReportService;
 import com.kp.crud.services.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author Dhanuaji Pratama
+ * @author Yosef Febrianes
  */
 @Controller
 public class ReportController {
@@ -30,11 +29,11 @@ public class ReportController {
     public String reportView(Model model){
         model.addAttribute("report", new Report());
         model.addAttribute("reports", reportService.reportView());
-        return "report";
+       return "report";
     }
     
-//    @RequestMapping()
-//    public String showRequest(Model model){
+//    @RequestMapping("")
+//    public String show(Model model){
 //        model.addAttribute("request", new Request());
 //        model.addAttribute("requests", requestService.getAll());
 //        return "redirect:/";

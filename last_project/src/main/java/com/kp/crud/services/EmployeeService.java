@@ -25,8 +25,12 @@ public class EmployeeService {
         return repository.findAll();
     }
     
-    public List<Employee> employeeView() {
-        return repository.employeeView();
+    public List<Employee> employeeViewLeave() {
+        return repository.employeeViewLeave();
+    }
+    
+    public List<Employee> employeeViewNotLeave() {
+        return repository.employeeViewNotLeave();
     }
 
     public List<Employee> string(String keyword) {

@@ -24,36 +24,36 @@ public class AccountService {
 
 //    @Autowired
 //    AccountRepository2 repository2;
-//    public Iterable<Account> getAll() {//FIX
-//        return repository.findAll();
+    public Iterable<Account> getAll() {//FIX
+        return repository.findAll();
+    }
+
+    public Iterable<Account> string(String keyword) {//FIX
+        return repository.findAll();
+    }
+
+//    public <S extends Account> S insert(S s){//FIX
+//    return repository.save(s);
 //    }
-//
-//    public Iterable<Account> string(String keyword) {//FIX
-//        return repository.findAll();
-//    }
-//
-////    public <S extends Account> S insert(S s){//FIX
-////    return repository.save(s);
-////    }
-//    public void insert(Account r) {//FIX
-//        repository.save(r);
-//    }
-//
-//    public void update(Account r) {//FIX
-//        repository.save(r);
-//    }
-//
-//    public void delete(String id) {
-//        repository.deleteById(id);
-//    }
-//
-//    public Iterable<Account> getById(String id) {
-//        return repository.findAll();
-//    }
-//
-//    public Iterable<Account> getByUsername(String username) {
-//        return repository.findAll();
-//    }
+    public void insert(Account r) {//FIX
+        repository.save(r);
+    }
+
+    public void update(Account r) {//FIX
+        repository.save(r);
+    }
+
+    public void delete(String id) {
+        repository.deleteById(id);
+    }
+
+    public Iterable<Account> getById(String id) {
+        return repository.findAll();
+    }
+
+    public Iterable<Account> getByUsername(String username) {
+        return repository.findAll();
+    }
 
 //    public AccountService(String username){
 //        repository.findById(username);

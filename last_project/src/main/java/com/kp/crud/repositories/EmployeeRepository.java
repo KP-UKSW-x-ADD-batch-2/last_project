@@ -21,11 +21,13 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
 //    @Modifying
     @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager_id`, `is_deleted` FROM `employees` WHERE `is_deleted`= \"0\"", nativeQuery = true)
-    public List<Employee> employeeView();
+    public List<Employee> employeeViewNotLeave();
 //    @Query(value = "SELECT name, ")
     
-    @Query(value = "SELECT `id`, `name`, `leave_quota`", nativeQuery = true)
-    public List<Employee> employeeViewManager();
+    @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager_id`, `is_deleted` FROM `employees` WHERE `is_deleted`= \"1\"", nativeQuery = true)
+    public List<Employee> employeeViewLeave();
+//    @Query(value = "SELECT `id`, `name`, `leave_quota`", nativeQuery = true)
+//    public List<Employee> employeeViewManager();
 }
 
 //SELECT * FROM employee e

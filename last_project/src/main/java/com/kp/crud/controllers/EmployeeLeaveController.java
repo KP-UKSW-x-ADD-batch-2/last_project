@@ -6,41 +6,38 @@
 package com.kp.crud.controllers;
 
 import com.kp.crud.entities.Employee;
-import com.kp.crud.repositories.EmployeeRepository;
 import com.kp.crud.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author Dhanuaji Pratama
+ * @author Yosef Febrianes
  */
 @Controller
-public class EmployeeController {
+public class EmployeeLeaveController {
     @Autowired
     EmployeeService employeeService;
     
-    @RequestMapping("employee")
+    @RequestMapping("employeeleave")
     public String employeView(Model model){
         model.addAttribute("employee", new Employee());
-        model.addAttribute("employees", employeeService.employeeView());
+        model.addAttribute("employees", employeeService.employeeViewLeave());
 //        for (Employee employee : employeeService.employeeView()) {
 //                System.out.println(employee.getId());
 //            }
-        return "employee";
+        return "employeeleave";
     }
     
-    @PostMapping("findemployee")
-    public String findEmployee(Model model, @Validated Employee id) {
-        employeeService.searchById(id.getId());
-        model.addAttribute("employee", new Employee());
-        model.addAttribute("employees", employeeService.searchById(id.toString()));
-        return "redirect:/";
-    }
+//    @PostMapping("findemployee")
+//    public String findEmployee(Model model, @Validated Employee id) {
+//        employeeService.searchById(id.getId());
+//        model.addAttribute("employee", new Employee());
+//        model.addAttribute("employees", employeeService.searchById(id.toString()));
+//        return "redirect:/";
+//    }
     
     
     

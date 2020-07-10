@@ -31,12 +31,12 @@ public class RequestService {
         return repository.findAll();
     }
 
-    public void insert(Request r) {//FIX
-        repository.save(r);
+    public void save(Request request) {//FIX
+        repository.save(request);
     }
 
-    public void update(Request r) {//FIX
-        repository.save(r);
+    public void update(Request request) {//FIX
+        repository.save(request);
     }
 
     public void delete(String id) {
@@ -47,8 +47,8 @@ public class RequestService {
         return repository.findAll();
     }
     
-    public List<Request> insertRequest(){
-        return repository.insertRequest();
-    }
+//    public List<Request> insertRequest(){
+//        return repository.insertRequest();
+//    }
 
 }
