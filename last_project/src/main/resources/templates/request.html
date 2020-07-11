@@ -18,15 +18,8 @@
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
     </head>
-    <header>
-        <label>ID : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.id}"></label></br>
-        <label>Name : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.name}"></label></br>
-        <label>Leave Quota : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.leaveQuota}"></label>
-    </header>
 
     <body id="page-top">
 
@@ -49,18 +42,9 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item">
-                    <div background: >
-                     <label>ID : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.id}"></label></br>
-        <label>Name : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.name}"></label></br>
-        <label>Leave Quota : </label>
-        <label th:each="as : ${employees}" th:text=" ${as.leaveQuota}"></label>
-        </div>
-
                     <a class="nav-link" href="dashboard">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Your Data</span></a>
+                        <span>Dashboard</span></a>
                 </li>
 
                 <!-- Divider -->
@@ -132,38 +116,31 @@
                 </li>
 
                 <!-- Nav Item - Charts -->
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="request">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Request</span></a>
                 </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="employeenotleave">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Employee Not Leave</span></a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="employeeleave">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Employee Leave</span></a>
-                </li>
-
-                <li class="nav-item active">
+                
+                <li class="nav-item">
                     <a class="nav-link" href="report">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Report</span></a>
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>History</span></a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="employeenotleave">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Employee Not Off Lists</span></a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="employeeleave">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Employee Off Lists</span></a>
                 </li>
 
-
-                <!--                 Nav Item - Tables 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="tables.html">
-                                        <i class="fas fa-fw fa-table"></i>
-                                        <span>Tables</span></a>
-                                </li>-->
-
+                <!-- Nav Item - Tables -->
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
@@ -182,36 +159,21 @@
                 <div id="content">
 
                     <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top shadow">
-                      
-                                <!--                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
-                                <label>ID : </label>
-                                <label th:each="as : ${employees}" th:text=" ${as.id}"></label></br>
-                                <label>Name : </label>
-                                <label th:each="as : ${employees}" th:text=" ${as.name}"></label></br>
-                                <label>Leave Quota : </label>
-                                <label th:each="as : ${employees}" th:text=" ${as.leaveQuota}"></label>
-                               
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
 
                         <!-- Topbar Search -->
-<!--                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">-->
-<!--                            <div>
-                                <table>
-                                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                <tr>
-                                <td th:each="as : ${employees}" th:text=" ${as.id}"></td>
-                                <td th:each="as : ${employees}" th:text=" ${as.name}"></td>
-                                <td th:each="as : ${employees}" th:text=" ${as.leaveQuota}"><td>
-                                </tr>
-                                </table>-->
+                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <!--                                    <button class="btn btn-primary" type="button">
-                                                                            <i class="fas fa-search fa-sm"></i>
-                                                                        </button>-->
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -239,14 +201,14 @@
                                 </div>
                             </li>
 
-<!--                             Nav Item - Alerts 
+                            <!-- Nav Item - Alerts -->
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-bell fa-fw"></i>
-                                     Counter - Alerts 
+                                    <!-- Counter - Alerts -->
                                     <span class="badge badge-danger badge-counter">3+</span>
                                 </a>
-                                 Dropdown - Alerts 
+                                <!-- Dropdown - Alerts -->
                                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                     <h6 class="dropdown-header">
                                         Alerts Center
@@ -288,14 +250,14 @@
                                 </div>
                             </li>
 
-                             Nav Item - Messages 
+                            <!-- Nav Item - Messages -->
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-envelope fa-fw"></i>
-                                     Counter - Messages 
+                                    <!-- Counter - Messages -->
                                     <span class="badge badge-danger badge-counter">7</span>
                                 </a>
-                                 Dropdown - Messages 
+                                <!-- Dropdown - Messages -->
                                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                     <h6 class="dropdown-header">
                                         Message Center
@@ -344,15 +306,14 @@
                                 </div>
                             </li>
 
-                            <div class="topbar-divider d-none d-sm-block"></div>-->
+                            <div class="topbar-divider d-none d-sm-block"></div>
 
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-<!--                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                                                        <label>hahaha</label></br>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                </a>-->
+                                </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="#">
@@ -384,8 +345,8 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <!--                        <h1 class="h3 mb-2 text-gray-800">Request Form</h1>
-                                                <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>-->
+<!--                        <h1 class="h3 mb-2 text-gray-800">Request Form</h1>
+                        <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>-->
 
                         <!-- Content Row -->
                         <div class="row">
@@ -397,141 +358,131 @@
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Request Form</h6>
                                     </div>
-                                    <div class="card-body">
-                                        <table>
-                                            <tr th:each="as : ${request}">
-                                                <td th:text=" ${as.id}"></td>
-                                                <td th:text=" ${as.name}"></td>
-                                                <td th:text=" ${as.leaveQuota}"></td>
-                                            </tr>
-                                        </table>
+                                    <div class="card-body"> 
                                         <div>
-                                            <!--                                            <form>-->
-                                            <form th:action="@{insert}" th:object="${request}" method="POST" action="/action_page.php">
-                                                <label for="fname">Request ID :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id=""><br>
-                                                <label for="fname">Requester :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id=""><br>
-                                                <label for="fname">Current Status :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id=""><br>
-                                                <label for="fname">Total Days :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id=""><br>
+
+<!--                                            <form th:action="@{insert}" th:object="${request}" method="POST" action="/action_page.php">-->
                                                 <label for="fname">Leave Type :</label><br>
-                                                <select class="form-control bg-light border-2 small" name="" id="">
-                                                    <option value="${as.type}"></option>
+                                                <select class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
+<!--                                                    <option value="${as.id}" text="${as.name}"></option>-->
+<!--                                                    <option value="saab">Cuti</option>
+                                                    <option value="opel">Sakit</option>
+                                                    <option value="audi">Cuti melahirkan</option>-->
                                                 </select><br>
                                                 <label for="fname">Number of days :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id="fname" name="fname" placeholder=""><br>
+                                                <input class="form-control bg-light border-2 small" type="text" id="fname" name="fname" placeholder="jumlah hari"><br>
                                                 <label for="birthday">Start date :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="date" id="birthday" name=""><br>
+                                                <input class="form-control bg-light border-2 small" type="date" id="birthday" name="birthday"><br>
                                                 <label for="lname">Leave Reason :</label><br>
                                                 <textarea class="form-control bg-light border-2 small" id="w3review" name="w3review" rows="4" cols="50"></textarea><br>
                                                 <input type="submit" value="Submit !"  class="btn btn-primary form-control">
                                             </form> 
-                                            <!--                                         <--th:field="*{id}"---->
+
                                         </div>
+                                        <hr>
+                                        Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
                                     </div>
                                 </div>
 
                                 <!-- Bar Chart -->
-                                <!--                                <div class="card shadow mb-4">
-                                                                    <div class="card-header py-3">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                                                    </div>
-                                                                    <div class="card-body">
-                                                                        <div class="chart-bar">
-                                                                            <canvas id="myBarChart"></canvas>
-                                                                        </div>
-                                                                        <hr>
-                                                                        Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                                                                    </div>
-                                                                </div>-->
+<!--                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-bar">
+                                            <canvas id="myBarChart"></canvas>
+                                        </div>
+                                        <hr>
+                                        Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+                                    </div>
+                                </div>-->
 
-                                <!--                            </div>-->
+                            </div>
 
-                                <!--                             Donut Chart 
-                                                            <div class="col-xl-4 col-lg-5">
-                                                                <div class="card shadow mb-4">
-                                                                     Card Header - Dropdown 
-                                                                    <div class="card-header py-3">
-                                                                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                                                                    </div>
-                                                                     Card Body 
-                                                                    <div class="card-body">
-                                                                        <div class="chart-pie pt-4">
-                                                                            <canvas id="myPieChart"></canvas>
-                                                                        </div>
-                                                                        <hr>
-                                                                        Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                
-                                -->                    </div>
-                            <!-- /.container-fluid -->
-
-                        </div>
-                        <!-- End of Main Content -->
-
-                        <!-- Footer -->
-                        <footer class="sticky-footer bg-white">
-                            <div class="container my-auto">
-                                <div class="copyright text-center my-auto">
-                                    <span>Copyright &copy; Your Website 2019</span>
+                            <!-- Donut Chart -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4">
+                                            <canvas id="myPieChart"></canvas>
+                                        </div>
+                                        <hr>
+                                        Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+                                    </div>
                                 </div>
                             </div>
-                        </footer>
-                        <!-- End of Footer -->
+                        </div>
 
                     </div>
-                    <!-- End of Content Wrapper -->
+                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Page Wrapper -->
+                <!-- End of Main Content -->
 
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
-                </a>
-
-                <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" th:href="@{http://localhost:8085/finally/}">Logout</a>
-                            </div>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2019</span>
                         </div>
                     </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" th:href="@{http://localhost:8085/finally/}">Logout</a>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="vendor/jquery/jquery.min.js"></script>
-                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Core plugin JavaScript-->
-                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-                <!-- Page level plugins -->
-                <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
-                <!-- Page level custom scripts -->
-                <script src="js/demo/chart-area-demo.js"></script>
-                <script src="js/demo/chart-pie-demo.js"></script>
-                <script src="js/demo/chart-bar-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="js/demo/chart-bar-demo.js"></script>
 
-                </body>
+    </body>
 
-                </html>
+</html>

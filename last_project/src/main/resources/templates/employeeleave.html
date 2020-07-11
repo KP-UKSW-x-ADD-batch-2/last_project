@@ -4,12 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <!DOCTYPE html>
     <html lang="en">
@@ -59,7 +53,7 @@ and open the template in the editor.
                     <li class="nav-item">
                         <a class="nav-link" href="dashboard">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Your Data</span></a>
+                            <span>Dashboard</span></a>
                     </li>
 
                     <!-- Divider -->
@@ -136,24 +130,24 @@ and open the template in the editor.
                             <i class="fas fa-fw fa-chart-area"></i>
                             <span>Request</span></a>
                     </li>
-
-                    <!-- Nav Item - Tables -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="employeenotleave">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Employee Not Leave</span></a>
-                    </li>
                     
-                    <li class="nav-item active">
-                        <a class="nav-link" href="employeeleave">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Employee Leave</span></a>
-                    </li>
-                    
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="report">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Report</span></a>
+                            <span>History</span></a>
+                    </li>
+                    
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="employeenotleave">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Employee Not Off Lists</span></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="employeeleave">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Employee Off Lists</span></a>
                     </li>
 
                     <!-- Divider -->
@@ -368,7 +362,7 @@ and open the template in the editor.
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tables Employees Off</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Tables Employees On Holidays</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -380,7 +374,7 @@ and open the template in the editor.
                                                     <th>Email</th>
                                                     <th>Phone Number</th>
                                                     <th>Leave Quota</th>
-                                                    <th>Is Deleted</th>
+<!--                                                    <th>Is Deleted</th>-->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -390,7 +384,7 @@ and open the template in the editor.
                                                     <td th:text=" ${as.email}"</td>
                                                     <td th:text=" ${as.phoneNumber}"></td>
                                                     <td th:text=" ${as.leaveQuota}"></td>
-                                                    <td th:text=" ${as.isDeleted}"></td>
+<!--                                                    <td th:text=" ${as.isDeleted}"></td>-->
                                                 </tr>
                                             </tbody>
                                         </table></br></br>
@@ -501,39 +495,3 @@ and open the template in the editor.
         </body>-->
 
 
-
-<!--<html>
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-    <div align="center">Employee Leave Data</div></br></br>
-        <div>
-            <table id="employeetable" class="table table-bordered" width="100%">
-                <thead>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Leave Quota</th>
-                        <th>Is Deleted</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="as : ${employees}">
-                        <td th:text=" ${as.id}"></td>
-                        <td th:text=" ${as.name}"></td> 
-                        <td th:text=" ${as.email}"</td>
-                        <td th:text=" ${as.phoneNumber}"></td>
-                        <td th:text=" ${as.leaveQuota}"></td>
-                        <td th:text=" ${as.isDeleted}"></td>
-                    </tr>
-                </tbody>
-            </table></br></br>
-        </div>
-        </tbody>
-    </body>
-</html>-->

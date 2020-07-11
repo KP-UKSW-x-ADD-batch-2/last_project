@@ -53,7 +53,7 @@ and open the template in the editor.
                     <li class="nav-item">
                         <a class="nav-link" href="dashboard">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Your Data</span></a>
+                            <span>Dashboard</span></a>
                     </li>
 
                     <!-- Divider -->
@@ -131,23 +131,23 @@ and open the template in the editor.
                             <span>Request</span></a>
                     </li>
 
-                    <!-- Nav Item - Tables -->
-                    <li class="nav-item active">
-                        <a class="nav-link" href="employeenotleave">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Employee Not Leave</span></a>
-                    </li>
-                    
-                    <li class="nav-item active">
-                        <a class="nav-link" href="employeeleave">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Employee Leave</span></a>
-                    </li>
-                    
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="report">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Report</span></a>
+                            <span>History</span></a>
+                    </li>
+
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="employeenotleave">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Employee Not Off Lists</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="employeeleave">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Employee Off Lists</span></a>
                     </li>
 
                     <!-- Divider -->
@@ -356,8 +356,8 @@ and open the template in the editor.
                         <div class="container-fluid">
 
                             <!-- Page Heading -->
-<!--                            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                            <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>-->
+                            <!--                            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                                                        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>-->
 
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
@@ -374,7 +374,7 @@ and open the template in the editor.
                                                     <th>Email</th>
                                                     <th>Phone Number</th>
                                                     <th>Leave Quota</th>
-                                                    <th>Is Deleted</th>
+                                                    <!--                                                    <th>Is Deleted</th>-->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -384,7 +384,7 @@ and open the template in the editor.
                                                     <td th:text=" ${as.email}"</td>
                                                     <td th:text=" ${as.phoneNumber}"></td>
                                                     <td th:text=" ${as.leaveQuota}"></td>
-                                                    <td th:text=" ${as.isDeleted}"></td>
+                                                    <!--                                                    <td th:text=" ${as.isDeleted}"></td>-->
                                                 </tr>
                                             </tbody>
                                         </table></br></br>

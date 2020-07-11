@@ -51,7 +51,7 @@ public class Report implements Serializable {
     private Date dateTime;
     @Basic(optional = false)
     @Column(name = "status")
-    private boolean status;
+    private String status;
     @JoinColumn(name = "pic", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Employee pic;
@@ -66,7 +66,7 @@ public class Report implements Serializable {
         this.id = id;
     }
 
-    public Report(String id, String notes, Date dateTime, boolean status) {
+    public Report(String id, String notes, Date dateTime, String status) {
         this.id = id;
         this.notes = notes;
         this.dateTime = dateTime;
@@ -97,11 +97,11 @@ public class Report implements Serializable {
         this.dateTime = dateTime;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
