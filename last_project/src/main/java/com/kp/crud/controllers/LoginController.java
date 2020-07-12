@@ -16,14 +16,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author Yosef Febrianes
  */
 @Controller
 public class LoginController {
+
 
     @Autowired
     AccountService accountService;
@@ -41,10 +44,9 @@ public class LoginController {
     public String index(Model model) {
         model.addAttribute("role", new Role());
         model.addAttribute("roles", roleService.getAll());
-        System.out.println("gbu");
         return "index";
     }
-    
+
     @PostMapping("findlogin")
     public String findLogin(Model model, @Validated Account id) {
         accountService.getById(id.getId());
@@ -53,32 +55,29 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @PostMapping("login")
-    public boolean login(Model model, @Validated String username, String password) {
-        Account acc = (Account) accountService.getByUsername(username);
-
-        if (acc != null && BCrypt.checkpw(password, acc.getPassword())) {
-//        if (BCrypt.checkpw(password, acc.getPassword())) {
-            return true;
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("role", new Role());
+        model.addAttribute("roles", roleService.getAll());
+        System.out.println("LOGIN ON");
+        
+        accountService.getByUsername("username", "password");
+        if (true) {
+            return "login";
         } else {
-            return false;
+            return "login";
         }
     }
 
-//    @RequestMapping("x")
-//    public String index(Model model, @Validated String username, String password) {
-//        model.addAttribute("role", new Role());
-//        model.addAttribute("roles", roleService.getAll());
-//        System.out.println("gbu");
-//
+//    @PostMapping("login")
+//    public boolean login(Model model, @Validated String username, String password) {
 //        Account acc = (Account) accountService.getByUsername(username);
-//        
+//
 //        if (acc != null && BCrypt.checkpw(password, acc.getPassword())) {
 ////        if (BCrypt.checkpw(password, acc.getPassword())) {
-//            return "index";
+//            return true;
 //        } else {
-//            return "redirect";
+//            return false;
 //        }
 //    }
-
 }

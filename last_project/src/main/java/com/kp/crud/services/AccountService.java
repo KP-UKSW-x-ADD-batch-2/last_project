@@ -51,7 +51,7 @@ public class AccountService {
         return repository.findAll();
     }
 
-    public Iterable<Account> getByUsername(String username) {
+    public Iterable<Account> getByUsername(String username, String password) {
         return repository.findAll();
     }
 
