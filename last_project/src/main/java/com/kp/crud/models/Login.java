@@ -14,7 +14,15 @@ public class Login {
     private String verifyCode;
     private boolean isActive;
     private boolean isDeleted;
-//    private String roles;
+    private String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     public String getId() {
         return id;
