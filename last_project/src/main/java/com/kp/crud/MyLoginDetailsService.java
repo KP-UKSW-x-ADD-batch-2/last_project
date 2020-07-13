@@ -2,7 +2,6 @@ package com.kp.crud;
 
 import com.kp.crud.models.Login;
 import com.kp.crud.models.MyUserDetails;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
