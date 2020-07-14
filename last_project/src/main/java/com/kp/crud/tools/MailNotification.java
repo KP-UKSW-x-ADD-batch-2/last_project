@@ -28,10 +28,10 @@ public class MailNotification {
     public void MailToEmployee() {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo("");
+        msg.setTo("yoseffebrianes@gmail.com");
 
-        msg.setSubject("");
-        msg.setText("");
+        msg.setSubject("Q");
+        msg.setText("Q");
 
         javaMailSender.send(msg);
     }
@@ -41,8 +41,8 @@ public class MailNotification {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo("yoseffebrianes@gmail.com");
 
-        msg.setSubject("");
-        msg.setText("");
+        msg.setSubject("Q");
+        msg.setText("Q");
 
         javaMailSender.send(msg);
     }
