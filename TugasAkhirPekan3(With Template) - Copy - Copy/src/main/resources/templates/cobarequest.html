@@ -11,25 +11,25 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div align="center">Request Form</div></br>
+        <div align="center">Request Form</div><br>
         <form th:action="@{save}" th:object="${request}" method="POST">
             <div>
                 <br><label>Leave ID</label>
-                <br><input type="text" value="">
+                <br><input type="text" th:field="*{id}">
                 <br><label>Requester ID</label>
-                <br><input type="text" value="">
+                <br><input type="text" th:field="*{requester}">
                 <br><label>Type Leave</label>
-                <br><input type="text" value=""/>
+                <br><input type="text" th:field="*{type}"/>
                 <br><label>Current Status</label>
-                <br><input type="text" value=""/>
+                <br><input type="text" th:field="*{currentStatus}"/>
                 <br><label>Days for leaving</label>
-                <br><input type="text" value="">
+                <br><input type="text" th:field="*{total}">
                 <br><label>Start Date</label>
-                <br><input type="date" value="">
+                <br><input type="date" th:field="*{start}">
                 <br><label>End Date</label>
-                <br><input type="date" value="">
+                <br><input type="date" th:field="*{end}">
                 <br><label>Reason for leaving</label>
-                <br><input type="text" value=""><br>
+                <br><input type="text" th:field="*{reason}"><br>
                 <button id="button" value="save" type="submit">Submit</button>
             </div>
         </form>

@@ -25,6 +25,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -46,28 +47,27 @@ public class Request implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private String id;
-    @Basic(optional = false)
     @Column(name = "total")
-    private int total;
-    @Basic(optional = false)
+    private Integer total;
     @Column(name = "start")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date start;
-    @Basic(optional = false)
     @Column(name = "end")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date end;
     @Lob
     @Column(name = "reason")
     private String reason;
     @JoinColumn(name = "current_status", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Status currentStatus;
     @JoinColumn(name = "type", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Type type;
     @JoinColumn(name = "requester", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Employees requester;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "request", fetch = FetchType.LAZY)
     private List<History> historyList;
@@ -79,13 +79,6 @@ public class Request implements Serializable {
         this.id = id;
     }
 
-    public Request(String id, int total, Date start, Date end) {
-        this.id = id;
-        this.total = total;
-        this.start = start;
-        this.end = end;
-    }
-
     public String getId() {
         return id;
     }
@@ -94,11 +87,11 @@ public class Request implements Serializable {
         this.id = id;
     }
 
-    public int getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 

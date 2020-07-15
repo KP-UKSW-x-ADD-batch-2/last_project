@@ -30,6 +30,10 @@ public class RequestService {
     }
     
     public Request save(Request request){
-        return requestRepository.saveAndFlush(request);
+        return requestRepository.save(request);
+    }
+    
+    public List<Request> managerShowRequest(){
+        return requestRepository.managerViewRequest();
     }
 }

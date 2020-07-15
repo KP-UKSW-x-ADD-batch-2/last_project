@@ -22,7 +22,7 @@ and open the template in the editor.
             <meta name="description" content="">
             <meta name="author" content="">
 
-            <title>Detail History</title>
+            <title>Request List To Manager</title>
             <link rel = "icon" type = "image/png" href = "star.png">
 
             <!-- Custom fonts for this template -->
@@ -375,105 +375,39 @@ and open the template in the editor.
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Detail History</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Request List</h6>
                                 </div>
                                 <div class="card-body">
-                                    <!--                                    <div class="table-responsive">
-                                                                            <table class="table table-bordered" id="detailhistoryTable" width="100%" cellspacing="0">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>Request ID</th>
-                                                                                        <th>Employee Name</th>
-                                                                                        <th>PIC Name</th>
-                                                                                        <th>Request Date</th>
-                                                                                        <th>Start Date</th>
-                                                                                        <th>End Date</th>
-                                                                                        <th>Type Of Leave</th>
-                                                                                        <th>Total Days</th>
-                                                                                        <th>Status</th>
-                                                                                        <th>Notes</th>                                           
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    <tr th:each="as : ${histories}">
-                                                                                        <td th:text=" ${as.request.id}"></td>
-                                                                                        <td th:text=" ${as.request.requester.name}"></td> 
-                                                                                        <td th:text=" ${as.request.requester.manager.name}"</td>
-                                                                                        <td th:text=" ${as.dateTime}"></td>
-                                                                                        <td th:text=" ${as.request.start}"></td>
-                                                                                        <td th:text=" ${as.request.end}"></td>
-                                                                                        <td th:text=" ${as.request.type.name}"></td>
-                                                                                        <td th:text=" ${as.request.total}"></td>
-                                                                                        <td th:text=" ${as.request.currentStatus.name}"></td>
-                                                                                        <td th:text=" ${as.request.reason}"></td>
-                                                                                    </tr>
-                                                                                    <tr th:each=" as : ${histories}">
-                                                                                        <td th:text=" ${as.request.id}"></td>
-                                                                                        <td th:text=" ${as.request.requester.name}"></td> 
-                                                                                        <td th:text=" ${as.request.requester.manager.name}"</td>
-                                                                                        <td th:text=" ${as.dateTime}"></td>
-                                                                                        <td th:text=" ${as.request.start}"></td>
-                                                                                        <td th:text=" ${as.request.end}"></td>
-                                                                                        <td th:text=" ${as.request.type.name}"></td>
-                                                                                        <td th:text=" ${as.request.total}"></td>
-                                                                                        <td th:text=" ${as.status.name}"></td>
-                                                                                        <td th:text=" ${as.notes}"></td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table></br></br>-->
-                                    <div th:each="as : ${histories}">
-<!--                                        <label>Request ID : </label>
-                                        <label th:text=" ${as.request.id}"></label>
--->                                     <label>||</label>
-                                        <label>Requester Name : </label>
-                                        <label th:text=" ${as.request.requester.name}"></label><br>
-                                        <label>||</label>
-                                        <label>PIC Name : </label>
-                                        <label th:text=" ${as.request.requester.manager.name}"></label><br>
-                                        <label>||</label>
-<!--                                        <label>Date/Time Request : </label>
-                                        <label th:text=" ${as.dateTime}"></label>-->
-                                        <label>Start from : </label>
-                                        <label th:text=" ${as.request.start}"></label><br>
-                                        <label>||</label>
-                                        <label>End : </label>
-                                        <label th:text=" ${as.request.end}"></label><br>
-                                        <label>||</label>
-                                        <label>Type of : </label>
-                                        <label th:text=" ${as.request.type.name}"></label><br>
-                                        <label>||</label>
-                                        <label>Total Days : </label>
-                                        <label th:text=" ${as.request.total}"></label><br>
-                                        <label>||</label>
-                                        <label>Status : </label>
-                                        <label th:text=" ${as.request.currentStatus.name}"></label><br>
-                                        <label>||</label>
-                                        <label>Notes : </label>
-                                        <label th:text=" ${as.request.reason}"></label><br><br>
-                                        
-                                    </div>
-                                        <div th:each=" as : ${histories}">
-<!--                                            <td th:text=" ${as.request.id}"></td>-->
-<!--                                            <label>Requester Name : </label>
-                                            <label th:text=" ${as.request.requester.name}"></label>
-                                            <label>||</label>
-                                            <label>PIC Name : </label>
-                                            <label th:text=" ${as.request.requester.manager.name}"></label>
-                                            <label>||</label>-->
-<!--                                            <label th:text=" ${as.dateTime}"></label>
-                                            <label th:text=" ${as.request.start}"></label>
-                                            <label th:text=" ${as.request.end}"></label>
-                                            <label th:text=" ${as.request.type.name}"></label>
-                                            <label th:text=" ${as.request.total}"></label>-->
-                                            <label>Status : </label>
-                                            <label th:text=" ${as.status.name}"></label>
-                                            <label>||</label>
-                                            <label>At : </label>
-                                            <label th:text=" ${as.dateTime}"></label><br>
-                                            <label>||</label>
-                                            <label>Notes : </label>
-                                            <label th:text=" ${as.notes}"></label>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="requestTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Employee Name</th>
+                                                    <th>Type Of Leave</th>
+                                                    <th>Total Days</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Reason</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
+                                                <tr th:each="as : ${requests}">
+                                                    <td th:text="${as.requester.name}"></td>
+                                                    <td th:text="${as.type.name}"></td>
+                                                    <td th:text="${as.total}"></td>
+                                                    <td th:text="${as.start}"></td>
+                                                    <td th:text="${as.end}"></td>
+                                                    <td th:text="${as.reason}"></td>
+                                                    <td>
+                                                        <button>Y</button>
+                                                        <button>X</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -581,56 +515,33 @@ and open the template in the editor.
 
 
 
-    <!--    <html>
-            <head>
-                <title>TODO supply a title</title>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            </head>
-            <body>
-                <div>Detail History</div>
-                <div>
-                    <table class="table table-bordered" id="employeenotleaveTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Request ID</th>
-                                <th>Employee Name</th>
-                                <th>PIC Name</th>
-                                <th>Request Date</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Type Of Leave</th>
-                                <th>Total Days</th>
-                                <th>Status</th>
-                                <th>Notes</th>                                           
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="as : ${reports}">
-                                <td th:text=" ${as.request.id}"></td>
-                                <td th:text=" ${as.request.requester.name}"></td> 
-                                <td th:text=" ${as.request.requester.managerId.name}"</td>
-                                <td th:text=" ${as.dateTime}"></td>
-                                <td th:text=" ${as.request.start}"></td>
-                                <td th:text=" ${as.request.end}"></td>
-                                <td th:text=" ${as.request.type.name}"></td>
-                                <td th:text=" ${as.request.total}"></td>
-                                <td th:text=" ${as.request.requester.id}"></td>
-                                <td th:text=" ${as.request.reason}"></td>
-                            </tr>
-                            <tr th:each=" as : ${reports}">
-                                <td th:text=" ${as.request.id}"></td>
-                                <td th:text=" ${as.request.requester.name}"></td> 
-                                <td th:text=" ${as.request.requester.managerId.name}"</td>
-                                <td th:text=" ${as.dateTime}"></td>
-                                <td th:text=" ${as.request.start}"></td>
-                                <td th:text=" ${as.request.end}"></td>
-                                <td th:text=" ${as.request.type.name}"></td>
-                                <td th:text=" ${as.request.total}"></td>
-                                <td th:text=" ${as.status}"></td>
-                                <td th:text=" ${as.request.reason}"></td>
-                            </tr>
-                        </tbody>
-                    </table></br></br>
-            </body>
-        </html>-->
+<!--    <html>
+        <head>
+            <title>TODO supply a title</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <div>TODO write content</div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Type Of Leave</th>
+                        <th>Total Days</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Reason</th>
+                    </tr>
+                    <tr th:each="as : ${requests}">
+                        <td th:text="${as.requester.name}"></td>
+                        <td th:text="${as.type.name}"></td>
+                        <td th:text="${as.total}"></td>
+                        <td th:text="${as.start}"></td>
+                        <td th:text="${as.end}"></td>
+                        <td th:text="${as.reason}"></td>
+                    </tr>
+                </table>
+            </div>
+        </body>
+    </html>-->

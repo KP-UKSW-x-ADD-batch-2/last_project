@@ -6,7 +6,9 @@
 package com.kp.crud.controllers;
 
 import com.kp.crud.entities.Request;
+import com.kp.crud.entities.Status;
 import com.kp.crud.services.RequestService;
+import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +28,14 @@ public class CobaRequestConttroller {
     @RequestMapping("cobarequest")
     public String cobareqView(Model model){
         model.addAttribute("request", new Request());
-        model.addAttribute("request", requestService.getAll());
+        model.addAttribute("requests", requestService.getAll());
         return "cobarequest";
     }
     
-    @PostMapping("")
-    public String saveRequest(Model model, @Validated Request request){
+    @PostMapping("save")
+    public String saveRequest(@Validated Request request){
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+        request.setCurrentStatus(new Status("S003"));
         requestService.save(request);
         return "redirect:/";
     }
