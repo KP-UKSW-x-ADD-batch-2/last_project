@@ -6,6 +6,7 @@
 package com.kp.crud.controllers;
 
 import com.kp.crud.entities.Employee;
+import com.kp.crud.entities.History;
 import com.kp.crud.entities.Report;
 import com.kp.crud.repositories.EmployeeRepository;
 import com.kp.crud.services.EmployeeService;
@@ -35,21 +36,12 @@ public class DashboardController {
     @Autowired
     ReportService reportService;
 
-//    @RequestMapping("dashboard")
-//    public String index(Model model) {
-////        for (Region region : regionService.getAll()) {
-////            System.out.println(region.getId()+" - "+region.getName());
-////        }
-//        model.addAttribute("region", new Region());
-//        model.addAttribute("regions", regionService.getAll());
-//        return "dashboard";
-//    }
     @RequestMapping("dashboard")
     public String employeView(Model model) {
         model.addAttribute("employee", new Employee());
         model.addAttribute("employees", employeeService.employeeViewLeave());
-        model.addAttribute("report", new Report());
-        model.addAttribute("reports", reportService.reportView());
+        model.addAttribute("history", new History());
+        model.addAttribute("histories", reportService.reportView());
         model.addAttribute("employee", new Employee());
         model.addAttribute("employees2", employeeService.employeeViewNotLeave());
 //        for (Employee employee : employeeService.employeeView()) {
@@ -58,11 +50,4 @@ public class DashboardController {
         return "dashboard";
     }
 
-//    @GetMapping("dashboard")
-//    public String reportView(Model model){
-//        model.addAttribute("report", new Report());
-//        model.addAttribute("reports", reportService.reportView());
-//        return "dashboard";
-//
-//    }
 }

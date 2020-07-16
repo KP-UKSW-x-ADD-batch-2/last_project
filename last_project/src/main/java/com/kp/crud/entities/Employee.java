@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Yosef Febrianes
  */
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e")
@@ -60,15 +60,22 @@ public class Employee implements Serializable {
     @Basic(optional = false)
     @Column(name = "is_deleted")
     private boolean isDeleted;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "requester", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "requester", fetch = FetchType.LAZY)
     private List<Request> requestList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pic", fetch = FetchType.LAZY)
-    private List<Report> reportList;
-    @OneToMany(mappedBy = "managerId", fetch = FetchType.LAZY)
-    private List<Employee> employeeList;
-    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+    private List<History> historyList;
+    
+//    @OneToMany(mappedBy = "managerId", fetch = FetchType.LAZY)
+//    private List<Employee> employeeList;
+//    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Employee managerId;
+    
+    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
+    private List<Employee> employeeList1;
+    @JoinColumn(name = "manager", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Employee managerId;
+    private Employee manager;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
     private Account account;
 
@@ -146,29 +153,46 @@ public class Employee implements Serializable {
     }
 
     @XmlTransient
-    public List<Report> getReportList() {
-        return reportList;
+    public List<History> getHistoryList() {
+        return historyList;
     }
 
-    public void setReportList(List<Report> reportList) {
-        this.reportList = reportList;
+    public void setHistoryList(List<History> historyList) {
+        this.historyList = historyList;
     }
+
+//    @XmlTransient
+//    public List<Employee> getEmployeeList() {
+//        return employeeList;
+//    }
+//
+//    public void setEmployeeList(List<Employee> employeeList) {
+//        this.employeeList = employeeList;
+//    }
+//
+//    public Employee getManagerId() {
+//        return managerId;
+//    }
+//
+//    public void setManagerId(Employee managerId) {
+//        this.managerId = managerId;
+//    }
 
     @XmlTransient
-    public List<Employee> getEmployeeList() {
-        return employeeList;
+    public List<Employee> getEmployeeList1() {
+        return employeeList1;
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void setEmployeeList1(List<Employee> employeeList1) {
+        this.employeeList1 = employeeList1;
     }
 
-    public Employee getManagerId() {
-        return managerId;
+    public Employee getManager() {
+        return manager;
     }
 
-    public void setManagerId(Employee managerId) {
-        this.managerId = managerId;
+    public void setManager(Employee manager) {
+        this.manager = manager;
     }
 
     public Account getAccount() {

@@ -5,6 +5,7 @@
  */
 package com.kp.crud.controllers;
 
+import com.kp.crud.entities.History;
 import com.kp.crud.entities.Report;
 import com.kp.crud.services.ReportService;
 import com.kp.crud.services.RequestService;
@@ -27,7 +28,7 @@ public class ReportController {
     
     @RequestMapping("report")
     public String reportView(Model model){
-        model.addAttribute("report", new Report());
+        model.addAttribute("report", new History());
         model.addAttribute("reports", reportService.reportView());
        return "report";
     }

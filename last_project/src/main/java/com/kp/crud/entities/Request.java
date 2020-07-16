@@ -46,46 +46,34 @@ public class Request implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private String id;
-    @Basic(optional = false)
     @Column(name = "total")
-    private int total;
-    @Basic(optional = false)
+    private Integer total;
     @Column(name = "start")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date start;
-    @Basic(optional = false)
     @Column(name = "end")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date end;
-    @Basic(optional = false)
     @Lob
     @Column(name = "reason")
     private String reason;
-    @JoinColumn(name = "requester", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Employee requester;
-    @JoinColumn(name = "type", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Type type;
     @JoinColumn(name = "current_status", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Status currentStatus;
+    @JoinColumn(name = "type", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Type type;
+    @JoinColumn(name = "requester", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employee requester;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "request", fetch = FetchType.LAZY)
-    private List<Report> reportList;
+    private List<History> historyList;
 
     public Request() {
     }
 
     public Request(String id) {
         this.id = id;
-    }
-
-    public Request(String id, int total, Date start, Date end, String reason) {
-        this.id = id;
-        this.total = total;
-        this.start = start;
-        this.end = end;
-        this.reason = reason;
     }
 
     public String getId() {
@@ -96,11 +84,11 @@ public class Request implements Serializable {
         this.id = id;
     }
 
-    public int getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 
@@ -128,12 +116,12 @@ public class Request implements Serializable {
         this.reason = reason;
     }
 
-    public Employee getRequester() {
-        return requester;
+    public Status getCurrentStatus() {
+        return currentStatus;
     }
 
-    public void setRequester(Employee requester) {
-        this.requester = requester;
+    public void setCurrentStatus(Status currentStatus) {
+        this.currentStatus = currentStatus;
     }
 
     public Type getType() {
@@ -144,21 +132,21 @@ public class Request implements Serializable {
         this.type = type;
     }
 
-    public Status getCurrentStatus() {
-        return currentStatus;
+    public Employee getRequester() {
+        return requester;
     }
 
-    public void setCurrentStatus(Status currentStatus) {
-        this.currentStatus = currentStatus;
+    public void setRequester(Employee requester) {
+        this.requester = requester;
     }
 
     @XmlTransient
-    public List<Report> getReportList() {
-        return reportList;
+    public List<History> getHistoryList() {
+        return historyList;
     }
 
-    public void setReportList(List<Report> reportList) {
-        this.reportList = reportList;
+    public void setHistoryList(List<History> historyList) {
+        this.historyList = historyList;
     }
 
     @Override

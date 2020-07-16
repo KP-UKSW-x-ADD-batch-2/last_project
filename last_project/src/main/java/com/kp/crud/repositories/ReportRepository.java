@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 public interface ReportRepository extends JpaRepository<Report, String>{
     
     @Modifying
-    @Query(value = "SELECT * FROM Report r", nativeQuery = true)
+    @Query(value = "SELECT * FROM history", nativeQuery = true)
     public List<Report> showReport();
     
 }

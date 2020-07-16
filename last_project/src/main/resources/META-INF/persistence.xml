@@ -30,6 +30,7 @@
     <class>com.kp.crud.entities.Type</class>
     <class>com.kp.crud.entities.PublicHoliday</class>
     <class>com.kp.crud.entities.Request</class>
+    <class>com.kp.crud.entities.History</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tugas_2?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

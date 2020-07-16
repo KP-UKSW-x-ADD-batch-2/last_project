@@ -6,7 +6,6 @@
 package com.kp.crud.repositories;
 
 import com.kp.crud.entities.Account;
-import com.kp.crud.entities.Login;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;

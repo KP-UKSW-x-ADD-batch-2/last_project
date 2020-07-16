@@ -1,16 +1,14 @@
 package com.kp.crud;
 
 import com.kp.crud.entities.Account;
-import com.kp.crud.entities.Login;
 import com.kp.crud.entities.MyUserDetails;
 import com.kp.crud.repositories.AccountRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class MyLoginDetailsService implements UserDetailsService {
@@ -19,11 +17,10 @@ public class MyLoginDetailsService implements UserDetailsService {
     AccountRepository accountRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Optional<Account> account = accountRepository.findByUsername(userName);
-
-        account.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
-
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<Account> account = accountRepository.findByUsername(username);
+        account.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
         return account.map(MyUserDetails::new).get();
     }
+
 }

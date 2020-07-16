@@ -51,13 +51,13 @@ public class Account implements Serializable {
     @Column(name = "password")
     private String password;
     @Basic(optional = false)
-    @Column(name = "verifyCode")
+    @Column(name = "verify_code")
     private String verifyCode;
     @Basic(optional = false)
-    @Column(name = "isActive")
+    @Column(name = "is_active")
     private boolean isActive;
     @Basic(optional = false)
-    @Column(name = "isDeleted")
+    @Column(name = "is_deleted")
     private boolean isDeleted;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account", fetch = FetchType.LAZY)
     private List<AccountRole> accountRoleList;

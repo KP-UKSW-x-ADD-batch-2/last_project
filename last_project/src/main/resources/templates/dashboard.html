@@ -363,7 +363,7 @@
           <!-- Page Heading -->
           <div>
               <label class="h3 mb-0 text-gray-800">Halo</label>
-              <label class="h3 mb-0 text-gray-800" th:each="as : ${reports}" th:text=" ${as.request.requester.name}"></label>
+              <label class="h3 mb-0 text-gray-800" th:each="as : ${histories}" th:text=" ${as.request.type}"></label>
               <label class="h3 mb-0 text-gray-800">,</label>
 <!--            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
           </div>

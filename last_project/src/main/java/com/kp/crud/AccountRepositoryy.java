@@ -5,7 +5,7 @@
  */
 package com.kp.crud;
 
-import com.kp.crud.entities.Login;
+import com.kp.crud.entities.Account;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,6 +13,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Yosef Febrianes
  */
-public interface AccountRepositoryy extends JpaRepository<Login, Integer> {
-    Optional<Login> findByUsername(String username);
+public interface AccountRepositoryy extends JpaRepository<Account, Integer> {
+    Optional<Account> findByUsername(String username);
 }

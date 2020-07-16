@@ -20,11 +20,11 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
 //    @Modifying
-    @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager_id`, `is_deleted` FROM `employees` WHERE `is_deleted`= \"0\"", nativeQuery = true)
+    @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager`, `is_deleted` FROM `employee` WHERE `is_deleted`= \"0\"", nativeQuery = true)
     public List<Employee> employeeViewNotLeave();
 //    @Query(value = "SELECT name, ")
     
-    @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager_id`, `is_deleted` FROM `employees` WHERE `is_deleted`= \"1\"", nativeQuery = true)
+    @Query(value = "SELECT `id`, `name`, `email`, `phone_number`, `leave_quota`, `manager`, `is_deleted` FROM `employee` WHERE `is_deleted`= \"1\"", nativeQuery = true)
     public List<Employee> employeeViewLeave();
 //    @Query(value = "SELECT `id`, `name`, `leave_quota`", nativeQuery = true)
 //    public List<Employee> employeeViewManager();

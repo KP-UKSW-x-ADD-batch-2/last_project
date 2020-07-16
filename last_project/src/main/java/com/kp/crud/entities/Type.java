@@ -8,7 +8,6 @@ package com.kp.crud.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,7 +44,7 @@ public class Type implements Serializable {
     @Basic(optional = false)
     @Column(name = "number_of_days")
     private int numberOfDays;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "type", fetch = FetchType.LAZY)
     private List<Request> requestList;
 
     public Type() {

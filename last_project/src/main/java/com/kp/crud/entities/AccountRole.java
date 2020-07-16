@@ -38,7 +38,7 @@ public class AccountRole implements Serializable {
     private String id;
     @Basic(optional = false)
     @Column(name = "is_deleted")
-    private boolean isDeleted;
+    private short isDeleted;
     @JoinColumn(name = "account", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Account account;
@@ -53,7 +53,7 @@ public class AccountRole implements Serializable {
         this.id = id;
     }
 
-    public AccountRole(String id, boolean isDeleted) {
+    public AccountRole(String id, short isDeleted) {
         this.id = id;
         this.isDeleted = isDeleted;
     }
@@ -66,11 +66,11 @@ public class AccountRole implements Serializable {
         this.id = id;
     }
 
-    public boolean getIsDeleted() {
+    public short getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(boolean isDeleted) {
+    public void setIsDeleted(short isDeleted) {
         this.isDeleted = isDeleted;
     }
 
