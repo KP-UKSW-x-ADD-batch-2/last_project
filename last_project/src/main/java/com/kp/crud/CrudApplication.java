@@ -1,11 +1,12 @@
 package com.kp.crud;
 
+import com.kp.crud.repositories.AccountRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = AccountRepositoryy.class)
+@EnableJpaRepositories(basePackageClasses = AccountRepository.class)
 public class CrudApplication {
 
 	public static void main(String[] args) {

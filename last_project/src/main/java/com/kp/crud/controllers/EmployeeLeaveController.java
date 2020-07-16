@@ -31,21 +31,4 @@ public class EmployeeLeaveController {
         return "employeeleave";
     }
     
-//    @PostMapping("findemployee")
-//    public String findEmployee(Model model, @Validated Employee id) {
-//        employeeService.searchById(id.getId());
-//        model.addAttribute("employee", new Employee());
-//        model.addAttribute("employees", employeeService.searchById(id.toString()));
-//        return "redirect:/";
-//    }
-    
-    
-    
-//    @RequestMapping("")
-//    public String request(Model model){
-//        model.addAttribute("request", new Request());
-//        model.addAttribute("requests", employeeService.getAll());
-//        return "index";
-//    }
-    
 }

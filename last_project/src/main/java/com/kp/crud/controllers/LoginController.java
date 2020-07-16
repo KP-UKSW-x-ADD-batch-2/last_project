@@ -37,38 +37,28 @@ public class LoginController {
     @Autowired
     AccountRepository repository;
 
-//    @RequestMapping("")
-//    public String index(Model model) {
-//        model.addAttribute("role", new Role());
-//        model.addAttribute("roles", roleService.getAll());
-//        return "index";
-//    }
+    @RequestMapping("")
+    public String index(Model model) {
+        return "index";
+    }
     
     @GetMapping("/login")
     public String login(Model model, String username, String password) {
         System.out.println("LOGIN ON");
 //        model.addAttribute("login", accountService.login(username));
 //        accountService.getByUsername("username", "password");
-        
+
 //        if (accountService != null && BCrypt.checkpw(password, password)) {
 //            return "dashboard";
 //        } else {
-            return "login";
-        }
+        return "login";
+    }
 //    }
-    
-    
-        @GetMapping("/logout")
+
+    @GetMapping("/logout")
     public String logout(Model model, String username, String password) {
         System.out.println("LOGOUT ON");
-//        model.addAttribute("login", accountService.login(username));
-//        accountService.getByUsername("username", "password");
-        
-//        if (accountService != null && BCrypt.checkpw(password, password)) {
-//            return "dashboard";
-//        } else {
-            return "login";
-        }
-    
+        return "login";
+    }
 
 }

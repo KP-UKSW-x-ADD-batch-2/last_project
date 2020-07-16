@@ -36,14 +36,16 @@ public class DashboardController {
     @Autowired
     ReportService reportService;
 
-    @RequestMapping("dashboard")
+    @RequestMapping("/dashboard")
     public String employeView(Model model) {
-        model.addAttribute("employee", new Employee());
-        model.addAttribute("employees", employeeService.employeeViewLeave());
-        model.addAttribute("history", new History());
-        model.addAttribute("histories", reportService.reportView());
-        model.addAttribute("employee", new Employee());
-        model.addAttribute("employees2", employeeService.employeeViewNotLeave());
+//        model.addAttribute("employee", new Employee());
+//        model.addAttribute("employees", employeeService.employeeViewLeave());
+//        model.addAttribute("history", new History());
+//        model.addAttribute("histories", reportService.reportView());
+//        model.addAttribute("employee", new Employee());
+//        model.addAttribute("employees2", employeeService.employeeViewNotLeave());
+
+
 //        for (Employee employee : employeeService.employeeView()) {
 //                System.out.println(employee.getId());
 //            }
