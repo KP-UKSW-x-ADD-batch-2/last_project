@@ -121,23 +121,29 @@
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Request</span></a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="history">
                         <i class="fas fa-fw fa-table"></i>
                         <span>History</span></a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="employeenotleave">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employee Not Off Lists</span></a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="employeeleave">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Employee Off Lists</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="managerview">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Request List</span></a>
                 </li>
 
                 <!-- Nav Item - Tables -->
@@ -345,8 +351,8 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-<!--                        <h1 class="h3 mb-2 text-gray-800">Request Form</h1>
-                        <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>-->
+                        <!--                        <h1 class="h3 mb-2 text-gray-800">Request Form</h1>
+                                                <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>-->
 
                         <!-- Content Row -->
                         <div class="row">
@@ -361,25 +367,26 @@
                                     <div class="card-body"> 
                                         <div>
                                             <form th:action="@{save}" th:object="${request}" method="POST">
-                                                <label for=""></label>Request ID :<br>
-                                                <input class="form-control bg-light border-2 small" type="text" id="fname" name="fname" placeholder=""><br>
-                                                <label>Requester ID :</label>
-                                                <input class="form-control bg-light border-2 small" type="text" id="fname" name="fname" placeholder=""><br>
-                                                <label for="fname">Leave Type :</label><br>
-                                                <select class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
-                                                    <option text="${as.id}"></option>
-<!--                                                    <option value="saab">Cuti</option>
-                                                    <option value="opel">Sakit</option>
-                                                    <option value="audi">Cuti melahirkan</option>-->
-                                                </select><br>
-                                                <label for="fname">Number of days :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="text" id="fname" name="fname" placeholder=""><br>
-                                                <label for="birthday">Start date :</label><br>
-                                                <input class="form-control bg-light border-2 small" type="date" id="birthday" name="birthday"><br>
-                                                <label for="lname">Leave Reason :</label><br>
-                                                <textarea class="form-control bg-light border-2 small" id="w3review" name="w3review" rows="4" cols="50"></textarea><br>
-                                                <input type="submit" value="Submit !"  class="btn btn-primary form-control">
-                                            </form> 
+                                                <div>
+                                                    <br><label>Leave ID</label>
+                                                    <br><input type="text" th:field="*{id}">
+                                                    <br><label>Requester ID</label>
+                                                    <br><input type="text" th:field="*{requester}">
+                                                    <br><label>Type Leave</label>
+                                                    <br><input type="text" th:field="*{type}"/>
+                                                    <br><label>Current Status</label>
+                                                    <br><input type="text" th:field="*{currentStatus}"/>
+                                                    <br><label>Days for leaving</label>
+                                                    <br><input type="text" th:field="*{total}">
+                                                    <br><label>Start Date</label>
+                                                    <br><input type="date" th:field="*{start}">
+                                                    <br><label>End Date</label>
+                                                    <br><input type="date" th:field="*{end}">
+                                                    <br><label>Reason for leaving</label>
+                                                    <br><input type="text" th:field="*{reason}"><br>
+                                                    <button id="button" value="save" type="submit">Submit</button>
+                                                </div>
+                                            </form>
 
                                         </div>
                                         <hr>
@@ -388,18 +395,18 @@
                                 </div>
 
                                 <!-- Bar Chart -->
-<!--                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart-bar">
-                                            <canvas id="myBarChart"></canvas>
-                                        </div>
-                                        <hr>
-                                        Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                                    </div>
-                                </div>-->
+                                <!--                                <div class="card shadow mb-4">
+                                                                    <div class="card-header py-3">
+                                                                        <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <div class="chart-bar">
+                                                                            <canvas id="myBarChart"></canvas>
+                                                                        </div>
+                                                                        <hr>
+                                                                        Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+                                                                    </div>
+                                                                </div>-->
 
                             </div>
 

@@ -23,4 +23,8 @@ public class HistoryService {
     public List<History> showHistory(){
         return historyRepository.historyView();
     }
+    
+//    public List<History> managerShowHistory(){
+//        return historyRepository.managerViewHistory();
+//    }
 }

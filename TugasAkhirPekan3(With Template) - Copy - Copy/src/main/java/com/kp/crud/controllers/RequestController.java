@@ -30,10 +30,10 @@ public class RequestController {
         return "request";
     }
     
-    @PostMapping("save")
-    public String saveRequest(Model model, @Validated Request request){
-        requestService.save(request);
-        return "redirect:/";
-    }
+//    @PostMapping("save")
+//    public String saveRequest(@Validated Request request){
+//        requestService.save(request);
+//        return "redirect:/";
+//    }
     
 }

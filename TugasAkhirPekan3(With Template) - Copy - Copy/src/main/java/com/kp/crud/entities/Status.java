@@ -41,7 +41,7 @@ public class Status implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "currentStatus", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "currentStatus", fetch = FetchType.LAZY)
     private List<Request> requestList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "status", fetch = FetchType.LAZY)
     private List<History> historyList;

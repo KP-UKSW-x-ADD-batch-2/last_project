@@ -19,4 +19,7 @@ import org.springframework.stereotype.Repository;
 public interface HistoryRepository extends JpaRepository<History, String>{
     @Query(value = "SELECT * FROM History", nativeQuery = true)
     public List<History> historyView();
+    
+//    @Query(value = "")
+//    public List<History> managerViewHistory(); 
 }
