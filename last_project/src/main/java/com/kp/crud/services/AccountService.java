@@ -7,6 +7,7 @@ package com.kp.crud.services;
 
 import com.kp.crud.entities.Account;
 import com.kp.crud.repositories.AccountRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,6 +25,7 @@ public class AccountService {
 
 //    @Autowired
 //    AccountRepository2 repository2;
+    
     public Iterable<Account> getAll() {//FIX
         return repository.findAll();
     }
@@ -32,9 +34,7 @@ public class AccountService {
         return repository.findAll();
     }
 
-//    public <S extends Account> S insert(S s){//FIX
-//    return repository.save(s);
-//    }
+
     public void insert(Account r) {//FIX
         repository.save(r);
     }
@@ -55,21 +55,8 @@ public class AccountService {
         return repository.findAll();
     }
 
-//    public AccountService(String username){
-//        repository.findById(username);
-//    }
-    
-//    public Account findByUsername(String username) {
-//        return repository.findByUsename(username);
-//    }
-
-//    public UserDetails loadByUsername(String username) throws UsernameNotFoundException {
-//        Account account = repository.findByUsename(username);
-//        if (account == null) {
-//            throw new UsernameNotFoundException("Invalid");
-//        }
-////        return new org.springframework.security.core.userdetails.User(account.getUsername(),account.getPassword());
-//        return null;
-//    }
+    public List<Account> login(String username) {
+        return repository.login(username);
+    }
 
 }

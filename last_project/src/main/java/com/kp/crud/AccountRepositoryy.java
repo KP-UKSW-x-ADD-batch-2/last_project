@@ -5,7 +5,7 @@
  */
 package com.kp.crud;
 
-import com.kp.crud.models.Login;
+import com.kp.crud.entities.Login;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

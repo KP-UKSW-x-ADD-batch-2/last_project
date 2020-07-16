@@ -1,4 +1,4 @@
-package com.kp.crud.models;
+package com.kp.crud.entities;
 
 import javax.persistence.*;
 

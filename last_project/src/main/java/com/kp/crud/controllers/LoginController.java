@@ -31,71 +31,44 @@ public class LoginController {
 
 //    @Autowired
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Autowired
     AccountService accountService;
 
     @Autowired
     AccountRepository repository;
 
-    @Autowired
-    RoleService roleService;
-
-    @Autowired
-    RoleRepository roleRepository;
-
-    @RequestMapping("")
-    public String index(Model model) {
-        model.addAttribute("role", new Role());
-        model.addAttribute("roles", roleService.getAll());
-        return "index";
-    }
-
-    @PostMapping("findlogin")
-    public String findLogin(Model model, @Validated Account id) {
-        accountService.getById(id.getId());
-        model.addAttribute("account", new Account());
-        model.addAttribute("accounts", accountService.getById(id.toString()));
-        return "redirect:/";
-    }
-
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public String login(Model model, String error, String logout) {
-//        if (error != null) {
-//            model.addAttribute("errorMsg", "Your username and password are invalid.");
-//        }
-//
-//        if (logout != null) {
-//            model.addAttribute("msg", "You have been logged out successfully.");
-//        }
-//
-//        return "dashboard";
+//    @RequestMapping("")
+//    public String index(Model model) {
+//        model.addAttribute("role", new Role());
+//        model.addAttribute("roles", roleService.getAll());
+//        return "index";
 //    }
-
+    
     @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("role", new Role());
-        model.addAttribute("roless", roleService.getAll());
+    public String login(Model model, String username, String password) {
         System.out.println("LOGIN ON");
-
-        accountService.getByUsername("username", "password");
-        if (true) {
-            return "login";
-        } else {
+//        model.addAttribute("login", accountService.login(username));
+//        accountService.getByUsername("username", "password");
+        
+//        if (accountService != null && BCrypt.checkpw(password, password)) {
+//            return "dashboard";
+//        } else {
             return "login";
         }
-    }
-    
-    
-//    @PostMapping("login")
-//    public boolean login(Model model, @Validated String username, String password) {
-//        Account acc = (Account) accountService.getByUsername(username);
-//
-//        if (acc != null && BCrypt.checkpw(password, acc.getPassword())) {
-////        if (BCrypt.checkpw(password, acc.getPassword())) {
-//            return true;
-//        } else {
-//            return false;
-//        }
 //    }
+    
+    
+        @GetMapping("/logout")
+    public String logout(Model model, String username, String password) {
+        System.out.println("LOGOUT ON");
+//        model.addAttribute("login", accountService.login(username));
+//        accountService.getByUsername("username", "password");
+        
+//        if (accountService != null && BCrypt.checkpw(password, password)) {
+//            return "dashboard";
+//        } else {
+            return "login";
+        }
+    
+
 }

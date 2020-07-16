@@ -1,5 +1,6 @@
-package com.kp.crud.models;
+package com.kp.crud.entities;
 
+import com.kp.crud.entities.Account;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,11 +17,12 @@ public class MyUserDetails implements UserDetails {
     private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public MyUserDetails(Login acc) {
+    public MyUserDetails(Account acc) {
         this.username = acc.getUsername();
         this.password = acc.getPassword();
-        this.active = acc.isIsActive();
-//        this.authorities = Arrays.stream(acc.getRoles().split(","))
+        this.active = acc.getIsActive();
+//        this.authorities = acc.getAccountRoleList();
+//        this.authorities = Arrays.stream(acc.getAccountRoleList().split(","))
 //                    .map(SimpleGrantedAuthority::new)
 //                    .collect(Collectors.toList());
     }

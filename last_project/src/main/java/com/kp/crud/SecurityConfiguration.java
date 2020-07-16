@@ -15,9 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    DataSource dataSource;
-
+//    @Autowired
+//    DataSource dataSource;
     @Autowired
     UserDetailsService userDetailsService;
 
@@ -28,21 +27,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/").permitAll()
-                .and().formLogin();
+//        http.authorizeRequests()
+//                .antMatchers("/admin").hasRole("ADMIN")
+//                .antMatchers("/user").hasAnyRole("ADMIN", "USER")
+//                .antMatchers("/").permitAll()
+//                .and().formLogin();
 
-//        http
-//                .authorizeRequests()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll();
-
+        http
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
     }
+
+
 
 //    	@Bean
 //	public PasswordEncoder passwordEncoder() {
@@ -54,9 +57,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 //		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder());
 //	}
-    
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
+@Bean
+        public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 }

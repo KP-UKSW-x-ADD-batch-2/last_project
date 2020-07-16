@@ -1,34 +1,4 @@
 <!DOCTYPE html>
-<?php 
-
-$host="localhost";
-$user="root";
-$password="";
-$db="demo";
-
-mysql_connect($host,$user,$password);
-mysql_select_db($db);
-
-if(isset($_POST['username'])){
-    
-    $uname=$_POST['username'];
-    $password=$_POST['password'];
-    
-    $sql="select * from loginform where user='".$uname."'AND Pass='".$password."' limit 1";
-    
-    $result=mysql_query($sql);
-    
-    if(mysql_num_rows($result)==1){
-        echo " You Have Successfully Logged in";
-        exit();
-    }
-    else{
-        echo " You Have Entered Incorrect Password";
-        exit();
-    }
-        
-}
-?>
 <html lang="en">
 
     <head>
@@ -79,22 +49,24 @@ if(isset($_POST['username'])){
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         </div>
+                                        
+                                        
                                         <!--<form class="user">-->
-                                        <form th:action="@{login}" th:object="${account}" method="POST"  >
+                                                <form name="f" th:action="@{/login}" method="post">           
                                             <div class="form-group">
                                                 <!--<input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">-->
-                                                <input type="text" class="form-control form-control-user" th:field="*{username}" th:text="${username}"  placeholder="Username">
+                                                <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="emailHelp" placeholder="Username">
                                             </div>
                                             <div class="form-group">
                                                 <!--<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">-->
-                                                <input type="password" class="form-control form-control-user" th:field="*{password}" th:text="${password}" placeholder="Password">
+                                                <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                             </div>
                                             <div class="form-group" >
                                                 <!--<select class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">-->
-                                                <select th:each="as : ${roles}" class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
-                                                    <option value="volvo" th:text=" ${as.name}"></option>
-                                                    <!--<option value="volvo" th:text=" ${as.name}"></option>-->
-                                                </select>
+<!--                                                <select  class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
+                                                    <option th:each="as : ${roles}" th:text=" ${as.name}"></option>
+                                                    <option th:each="as:${roless}" th:value="${as.name}"></option>
+                                                </select>-->
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
@@ -113,6 +85,41 @@ if(isset($_POST['username'])){
                                                 <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                             </a>
                                         </form>
+                                        
+                                        
+<!--                                        <form th:action="@{getByUsername}" th:object="${account}" method="POST" onsubmit="return myFunction()" >
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
+                                                <input type="text" class="form-control form-control-user" th:value="${username}" aria-describedby="emailHelp" placeholder="Username">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                                <input type="password" class="form-control form-control-user" th:value="${password}" placeholder="Password">
+                                            </div>
+                                            <div class="form-group" >
+                                                <select class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
+                                                <select  class="form-control bg-light border-2 small" name="cars" id="cars" placeholder="choose!">
+                                                    <option th:each="as : ${roles}" th:text=" ${as.name}"></option>
+                                                    <option th:each="as:${roles}" th:value="${as.name}"></option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                </div>
+                                            </div>
+                                            <a href="dashboard" type="submit" class="btn btn-primary btn-user btn-block">
+                                                Login
+                                            </a>
+                                            <hr>
+                                            <a href="login.html" class="btn btn-google btn-user btn-block">
+                                                <i class="fab fa-google fa-fw"></i> Login with Google
+                                            </a>
+                                            <a href="login.html" class="btn btn-facebook btn-user btn-block">
+                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                            </a>
+                                        </form>-->
                                         <hr>
                                         <div class="text-center">
                                             <a class="small" href="forgot-password.html">Forgot Password?</a>
